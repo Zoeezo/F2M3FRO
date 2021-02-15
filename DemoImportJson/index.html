@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haal JSON op</title>
+</head>
+<body>
+    <h1>Haal JSON op</h1>
+
+    <script>
+        const url = 'https://gist.githubusercontent.com/Theo-denBlanken/ed9551298618eb05ad01b838b3bf32b5/raw/c8c1fed36793bdd6fd69ba6ee815c263a61118c3/boekenTheo.json';
+        const aanvraagServer = new XMLHttpRequest();
+
+        function verwerkData(data) {
+            let uitvoer = '';
+
+            data.forEach(boek => {
+                uitvoer += `<img style="width: 100px;" src="${boek.cover}" alt="${boek.titel}">`;
+            });
+
+            document.body.innerHTML = uitvoer;
+        }
+
+        aanvraagServer.onreadystatechange = () => {
+            console.log(`readystate: ${aanvraagServer.readyState}, status: ${aanvraagServer.status}`);
+
+            if(aanvraagServer.readyState == 4 && aanvraagServer.status == 200) {
+                console.log(aanvraagServer.responseText);
+
+                let data = JSON.parse(aanvraagServer.responseText);
+                console.log(data);
+                verwerkData(data);
+            }
+        }
+
+        aanvraagServer.open('GET', url, true);
+        aanvraagServer.send();
+    </script>
+</body>
+</html>
