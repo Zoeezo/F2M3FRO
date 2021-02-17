@@ -11,7 +11,7 @@ weatherButton.addEventListener('click', () => {
 });
 
 function formatData(data) {
-    let text = `It's ${data.main.temp - 273.15}°C in ${data.name}, it feels like  ${data.main.feels_like - 273.15}°C and there are ${data.weather[0].description}.`
+    let text = `It's ${parseInt(data.main.temp - 273.15)}°C in ${data.name}, it feels like  ${parseInt(data.main.feels_like - 273.15)}°C and there are ${data.weather[0].description}.`
 
     weatherText.innerText = text;
 }
