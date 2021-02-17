@@ -4,13 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le current weather</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Ubuntu&display=swap" rel="stylesheet">    
+
+    <link rel="stylesheet" href="style.css">
+    <title>WN | Weather Now</title>
 </head>
 <body>
-    <h1>The current weather</h1>
-    <p id="weather-text"></p>
-    <button id="weather-button">Get weather</button>
+    <div class="grid-wrapper">
+        <div class="settings panel">
+            <h1>Settings</h1>
+            <h2>Location:</h2>
+            
+            <p>City</p>
+            <input type="text" id="settings-city-text" placeholder="ENTER CITY">
+            <button class="location-button" id="settings-city-button">Confirm</button>
 
+            <p>Zip code</p>
+            <input type="text" id="settings-zip-text" placeholder="UNAVAILABLE" disabled="true">
+            <button class="location-button" id="settings-zip-button">Confirm</button>
+
+            <h2>Units:</h2>
+            <div class="units-wrapper">
+                <button class="units-button units-button-selected" id="kelvin-button">Kelvin</button>
+                <button class="units-button" id="celsius-button">Celsius</button>
+                <button class="units-button" id="fahrenheit-button">Fahrenheit</button>
+            </div>
+        </div>
+
+        <div class="location panel">
+            <h1>Location</h1>
+            <p>Country: <strong><span id="location-country-text">None</span></strong></p>
+            <p>City: <strong><span id="location-city-text">None</span></strong></p>
+            <p>Coordinates: <strong><span id="location-coordinates-text">Unknown</span></strong></p>
+        </div>
+
+        <div class="today panel">
+            <h1>Today</h1>
+
+            <div class="today-wrapper">
+                <div class="today-item">
+                    <img src="icons/cloud.png" alt="cloud icon">
+                    <h2 id="today-weather">Unknown</h2>
+                    <p id="today-weather-text">None</p>
+                </div>
+
+                <div class="today-item">
+                    <img src="icons/thermostat.png" alt="thermostat icon">
+                    <h2 id="today-temp">Unknown</h2>
+                    <p id="today-temp-text">None</p>
+                </div>
+
+                <div class="today-item">
+                    <img src="icons/wind.png" alt="wind icon">
+                    <h2 id="today-wind">Unknown</h2>
+                    <p id="today-wind-text">None</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="future panel">
+            <h1>Forecast</h1>
+
+            <h2 id="day-1-title">Unknown</h2>
+            <div class="future-wrapper">
+                <div class="future-item">
+                    <img src="icons/cloud.png" alt="cloud icon">
+                    <p id="day-1-weather">None</p>                    
+                </div>
+
+                <div class="future-item">
+                    <img src="icons/thermostat.png" alt="thermostat icon">
+                    <p id="day-1-temp">None</p>                    
+                </div>
+            </div>
+
+            <h2 id="day-2-title">Unknown</h2>
+            <div class="future-wrapper">
+                <div class="future-item">
+                    <img src="icons/cloud.png" alt="cloud icon">
+                    <p id="day-2-weather">None</p>                    
+                </div>
+
+                <div class="future-item">
+                    <img src="icons/thermostat.png" alt="thermostat icon">
+                    <p id="day-2-temp">None</p>                    
+                </div>
+            </div>
+
+            <h2 id="day-3-title">Unknown</h2>
+            <div class="future-wrapper">
+                <div class="future-item">
+                    <img src="icons/cloud.png" alt="cloud icon">
+                    <p id="day-3-weather">None</p>                    
+                </div>
+
+                <div class="future-item">
+                    <img src="icons/thermostat.png" alt="thermostat icon">
+                    <p id="day-3-temp">None</p>                    
+                </div>
+            </div>
+
+            <h2 id="day-4-title">Unknown</h2>
+            <div class="future-wrapper">
+                <div class="future-item">
+                    <img src="icons/cloud.png" alt="cloud icon">
+                    <p id="day-4-weather">None</p>                    
+                </div>
+
+                <div class="future-item">
+                    <img src="icons/thermostat.png" alt="thermostat icon">
+                    <p id="day-4-temp">None</p>                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="countries.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
